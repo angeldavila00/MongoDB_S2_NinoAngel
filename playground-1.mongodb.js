@@ -4,4 +4,13 @@
 // The current database to use.
 use("victimasconflicto");
 
-db.departamentos.find();
+db.departamentos.insertMany();
+
+db.Municipios.insertMany();
+
+db.ubicaciones.insertMany();
+
+db.lugares.insertMany();
+
+db.fechas.insertMany();
+

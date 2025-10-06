@@ -1,0 +1,130 @@
+[
+  {
+    "departamento": "ANTIOQUIA",
+    "codigodanedepartamento": 5
+  },
+  {
+    "departamento": "CAQUETA",
+    "codigodanedepartamento": 18
+  },
+  {
+    "departamento": "BOLIVAR",
+    "codigodanedepartamento": 13
+  },
+  {
+    "departamento": "PUTUMAYO",
+    "codigodanedepartamento": 86
+  },
+  {
+    "departamento": "CORDOBA",
+    "codigodanedepartamento": 23
+  },
+  {
+    "departamento": "NARIÑO",
+    "codigodanedepartamento": 52
+  },
+  {
+    "departamento": "CAUCA",
+    "codigodanedepartamento": 19
+  },
+  {
+    "departamento": "GUAVIARE",
+    "codigodanedepartamento": 95
+  },
+  {
+    "departamento": "META",
+    "codigodanedepartamento": 50
+  },
+  {
+    "departamento": "NORTE DE SANTANDER",
+    "codigodanedepartamento": 54
+  },
+  {
+    "departamento": "HUILA",
+    "codigodanedepartamento": 41
+  },
+  {
+    "departamento": "VALLE DEL CAUCA",
+    "codigodanedepartamento": 76
+  },
+  {
+    "departamento": "VAUPES",
+    "codigodanedepartamento": 97
+  },
+  {
+    "departamento": "ARAUCA",
+    "codigodanedepartamento": 81
+  },
+  {
+    "departamento": "TOLIMA",
+    "codigodanedepartamento": 73
+  },
+  {
+    "departamento": "CASANARE",
+    "codigodanedepartamento": 85
+  },
+  {
+    "departamento": "VICHADA",
+    "codigodanedepartamento": 99
+  },
+  {
+    "departamento": "CHOCO",
+    "codigodanedepartamento": 27
+  },
+  {
+    "departamento": "SANTANDER",
+    "codigodanedepartamento": 68
+  },
+  {
+    "departamento": "CESAR",
+    "codigodanedepartamento": 20
+  },
+  {
+    "departamento": "LA GUAJIRA",
+    "codigodanedepartamento": 44
+  },
+  {
+    "departamento": "CUNDINAMARCA",
+    "codigodanedepartamento": 25
+  },
+  {
+    "departamento": "CALDAS",
+    "codigodanedepartamento": 17
+  },
+  {
+    "departamento": "BOGOTA DC",
+    "codigodanedepartamento": 11
+  },
+  {
+    "departamento": "MAGDALENA",
+    "codigodanedepartamento": 47
+  },
+  {
+    "departamento": "SUCRE",
+    "codigodanedepartamento": 70
+  },
+  {
+    "departamento": "QUINDIO",
+    "codigodanedepartamento": 63
+  },
+  {
+    "departamento": "BOYACA",
+    "codigodanedepartamento": 15
+  },
+  {
+    "departamento": "GUAINIA",
+    "codigodanedepartamento": 94
+  },
+  {
+    "departamento": "RISARALDA",
+    "codigodanedepartamento": 66
+  },
+  {
+    "departamento": "ATLANTICO",
+    "codigodanedepartamento": 8
+  },
+  {
+    "departamento": "AMAZONAS",
+    "codigodanedepartamento": 91
+  }
+]
