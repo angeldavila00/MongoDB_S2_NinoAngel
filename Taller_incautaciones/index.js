@@ -1,4 +1,4 @@
-use incautaciones_Marihuana;
+use (incautaciones_db2);
 
 
 //¿Cuántos municipios comienzan con "La" y cuál es la cantidad total incautada en ellos?
@@ -9,7 +9,7 @@ db.incautaciones.aggregate([
         {
             from: "municipios",
             localField: "cod_muni", //el elemento que esta en la lista incautaciones
-            foreignField: "codMuni", //el elemento de la lista que estamos llamando identificador unico(llave foranea)
+            foreignField: "cod_Muni", //el elemento de la lista que estamos llamando identificador unico(llave foranea)
             as: "municipioInfo" //ponerle el nuevo nombre a la lista que estoy llamando para crear
         }
     },
@@ -34,7 +34,7 @@ db.incautaciones.aggregate([
         {
             from: "municipios",
             localField: "cod_muni", //el elemento que esta en la lista incautaciones
-            foreignField: "codMuni", //el elemento de la lista que estamos llamando identificador unico(llave foranea)
+            foreignField: "cod_muni", //el elemento de la lista que estamos llamando identificador unico(llave foranea)
             as: "municipioInfo" //ponerle el nuevo nombre a la lista que estoy llamando para crear
         }
     },
