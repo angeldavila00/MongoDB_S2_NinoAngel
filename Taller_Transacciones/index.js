@@ -138,10 +138,102 @@ s.withTransaction(() => {
         }
     ]);
 
-    
+
     //19. Encuentra los municipios que empiecen por “San” y agrupa la cantidad incautada por año.
 
+    adb.incautaciones.aggregate([
+        {
+            $lookup: {
+                from: "municipios",
+                localField: "cod_muni",
+                foreignField: "cod_muni",
+                as: "total"
+            }
+        },
+        {
+            $unwind: "$total"
+        },
+        {
+            $match: { "total.nombre_muni": { $regex: /^San\b/i } }
+        },
+        {
+            $addFields: {
+                _fecha: {
+                    $cond: [
+                        { $ne: [{ $type: "$fecha_hecho" }, "date"] },
+                        { $toDate: "$fecha_hecho" },
+                        "$fecha_hecho"
+                    ]
+                }
+            }
+        },
+        {
+            $group: {
+                _id: { anio: { $year: "$fecha_hecho" }, nombre_muni: "$total.nombre_muni" },
+                totalIncautado: { $sum: "$cantidad" }
+            }
+        },
+        {
+            $sort: {
+                "_id.anio": 1,
+                totalIncautado: -1
+            }
+        },
+        {
+            $project: {
+                _id: 0,
+                anio: "$_id.anio",
+                nombre_muni: "$_id.nombre_muni",
+                totalIncautado: 1
+            }
+        }
+    ]);
+
     //20. Lista los departamentos que tengan al menos un municipio cuyo nombre termine en “ito” o “ita”, y muestra la cantidad total incautada en ellos.
+
+    adb.municipios.aggregate([
+
+        { $match: { nombre_muni: { $regex: /(ito|ita)$/i } } },
+        {
+            $lookup: {
+                from: "departamentos",
+                localField: "cod_depto",
+                foreignField: "cod_depto",
+                as: "depto"
+            }
+        },
+        { $unwind: "$depto" },
+        {
+            $lookup: {
+                from: "incautaciones",
+                localField: "cod_muni",
+                foreignField: "cod_muni",
+                as: "incautas"
+            }
+        },
+        { $unwind: "$incautas" },
+        {
+            $group: {
+                _id: {
+                    cod_depto: "$cod_depto",
+                    nombre_depto: "$depto.nombre_depto"
+                },
+                totalIncautado: { $sum: { $ifNull: ["$incautas.cantidad", 0] } },
+                municipiosCoincidentes: { $addToSet: "$nombre_muni" }
+            }
+        },
+        {
+            $project: {
+                _id: 0,
+                cod_depto: "$_id.cod_depto",
+                nombre_depto: "$_id.nombre_depto",
+                totalIncautado: 1,
+                cantidadMunicipiosCoincidentes: { $size: "$municipiosCoincidentes" },
+                municipiosCoincidentes: 1
+            }
+        },
+        { $sort: { totalIncautado: -1 } }
+    ]);
 
 });
 
